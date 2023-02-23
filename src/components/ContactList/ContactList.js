@@ -1,5 +1,6 @@
 import React from 'react';
 import { Contact } from '../Contact/Contact';
+import PropTypes from 'prop-types';
 
 export const ContactList = ({ filtredContacts, onDelete }) => {
   return (
@@ -9,4 +10,15 @@ export const ContactList = ({ filtredContacts, onDelete }) => {
       ))}
     </ul>
   );
+};
+
+ContactList.propTypes = {
+  filtredContacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  onDelete: PropTypes.func.isRequired
 };

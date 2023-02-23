@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './Contact.module.css';
+import PropTypes from 'prop-types';
 
 export const Contact = ({ contact, onDelete }) => {
   return (
@@ -14,4 +15,13 @@ export const Contact = ({ contact, onDelete }) => {
       </button>
     </li>
   );
+};
+
+Contact.propTypes = {
+  contact: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }).isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
